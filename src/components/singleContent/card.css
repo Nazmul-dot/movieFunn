@@ -1,0 +1,19 @@
+.card-body:hover{
+    background-color: aliceblue;
+    color:black;
+}
+.card_box {
+    width: 200px;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: #2d313a;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between
+}
+
+.tit{
+    color:red
+}

@@ -1,24 +1,45 @@
-import logo from './logo.svg';
 import './App.css';
-
+import Header from './components/header/Header';
+import MainNav from './components/MainNav';
+import { makeStyles } from '@material-ui/core/styles'
+import { Route, Switch } from 'react-router-dom';
+import Tanding from './pages/tanding/Tanding';
+import Movie from './pages/movie/Movie';
+import Tv from './pages/tv/Tv';
+import Search from './pages/search/Search';
+const useStyle = makeStyles((theme) => ({
+  app: {
+    marginTop: 53,
+    [theme.breakpoints.up('md')]: {
+      marginTop: 70
+    },
+    minHeight: '100vh',
+    backgroundColor: '#39445a',
+  }
+}))
 function App() {
+  const classes = useStyle()
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+      <div className={classes.app}>
+        <Switch>
+          <Route exact path='/'>
+            <Tanding />
+          </Route>
+          <Route exact path='/movie'>
+            <Movie />
+          </Route>
+          <Route exact path='/tv'>
+            <Tv />
+          </Route>
+          <Route exact path='/search'>
+            <Search />
+          </Route>
+        </Switch>
+      </div>
+      <MainNav />
+    </>
   );
 }
 
